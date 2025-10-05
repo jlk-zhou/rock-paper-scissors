@@ -25,7 +25,7 @@ function getComputerChoice() {
  * @returns {string} The user's input. 
  */
 function getHumanChoice() {
-    return prompt("Play it... ")
+    return prompt("Play it... "); 
 }
 
 /**
@@ -53,7 +53,33 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-// const humanChoice = getHumanChoice (); 
-// const computerChoice = getComputerChoice(); 
+/**
+ * The main game loop. Plays the game for 5 times and returns a message
+ * that announces the game result in the end
+ * @returns {string} "You win! ", "Computer wins! " or "It's a tie! "
+ */
+function playGame() {
 
-// playRound(humanChoice, computerChoice); 
+    // Play game for 5 times
+    for (i = 0; i < 5; i++) {
+
+        // Get both computer and human choices
+        let computerChoice = getComputerChoice(); 
+        let humanChoice = getHumanChoice(); 
+
+        // Play a round
+        playRound(humanChoice, computerChoice); 
+        
+    }
+
+    // Announce winner
+    if (humanScore > computerScore) {
+        console.log("You win! "); 
+    } else if (humanScore < computerScore){
+        console.log("Computer wins! "); 
+    } else {
+        console.log("Tie game! "); 
+    }
+}
+
+playGame(); 
